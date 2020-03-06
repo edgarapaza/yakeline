@@ -1,3 +1,6 @@
+<?php
+require("../moduloB/models/catalogo.model.php");
+?>
 <!doctype html>
 <html lang="es-ES">
 <head>
@@ -9,15 +12,27 @@
 	<div class="container">
 		
 	<h1>Catalogo</h1>
-		<form action="#" method="POST" role="form">		<fieldset>
+		<form action="controllers/catalogo.controller.php" method="POST" role="form">
+		<fieldset>
+			<legend>Codigo de Referencia</legend>
+			<div class="form-group">
+				<p>
+					PE / ARP / 
+				<select name="codreferencia" id="" class="form-control">
+					<option value="0">[Seleccionar]</option>
+					<option value="selected">Archivo Historico</option>
+					<option value="selected">Archivo Intermedio</option>
+				</select>
+				 / INT / 
+				 <input type="text" class="form-control" id="" name="codreferencia" placeholder="codigo de referencia">
+				</p>
+			</div>
+		</fieldset>	
+		<fieldset>
 			<legend>AREA DE IDENTIFICACION</legend>
 			<div>
 				<label for="">Caja / Unidad de Archivamiento :</label>
-				<input type="text" class="form-control" id="" name="caja" placeholder="unidad de archivcamiento - caja">
-			</div>
-			<div class="form-group">
-				<label for="">Codigo Referencia:</label>
-				<input type="text" class="form-control" id="" name="codreferencia" placeholder="codigo de referencia">
+				<input type="text" class="form-control" id="" name="idcaja" placeholder="unidad de archivcamiento - caja">
 			</div>
 			<div class="form-group">
 				<label for="">Seccion:</label>
@@ -29,11 +44,15 @@
 			</div>
 			<div class="form-group">
 				<label for="">Fecha Documento:</label>
-				<input type="text" class="form-control" id="" name="fecdocumento" placeholder="Fecha Documento">
+				<input type="date" class="form-control" id="" name="fecdocumento" placeholder="Fecha Documento">
 			</div>
 			<div class="form-group">
 				<label for="">Nivel de Descripcon:</label>
-				<input type="text" class="form-control" id="" name="nivdescrip" placeholder="Nivel de Descripcon">
+				<select name="nivdescrip" id="" class="form-control">
+					<option value="0">[Seleccionar]</option>
+					<option value="selected">Unidad Documental Compuesta</option>
+					<option value="selected">Unidad Documental Simple</option>
+				</select>
 			</div>
 			<div class="form-group">
 				<label for="">Volumen de la unidad de descripción:</label>
@@ -116,10 +135,14 @@
 				<label for="">Fecha de Inicio de Descripcion:</label>
 				<input type="date" class="form-control" id="" name="fecdescripcion" placeholder="MM/dd/aaa" >
 			</div>
-			
+
 			<div class="form-group">
 				<label for="">Fecha de Finalizacion de Descripcion:</label>
 				<input type="date" class="form-control" id="" name="fecfinalizacion" placeholder="MM/dd/aaa">
+			</div>
+			<div class="form-group">
+				<label for="">Estado:</label>
+				<input type="text" class="form-control" id="" name="estado" placeholder="Estado">
 			</div>
 			<div class="form-group">
 				<label for="">Observaciones:</label>
