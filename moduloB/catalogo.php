@@ -1,12 +1,16 @@
 <?php
 require("../moduloB/models/catalogo.model.php");
+require("../moduloB/models/caja.model.php");
+
+$cajas = new Caja();
+$data = $cajas->Consultar();
 ?>
-<!doctype html>
 <html lang="es-ES">
 <head>
 	<title>
 		
 	</title>
+	<link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
 </head>
 <body>
 	<div class="container">
@@ -20,8 +24,8 @@ require("../moduloB/models/catalogo.model.php");
 					PE / ARP / 
 				<select name="codreferencia" id="" class="form-control">
 					<option value="0">[Seleccionar]</option>
-					<option value="selected">Archivo Historico</option>
-					<option value="selected">Archivo Intermedio</option>
+					<option value="">Archivo Historico</option>
+					<option value="">Archivo Intermedio</option>
 				</select>
 				 / INT / 
 				 <input type="text" class="form-control" id="" name="codreferencia" placeholder="codigo de referencia">
@@ -32,7 +36,14 @@ require("../moduloB/models/catalogo.model.php");
 			<legend>AREA DE IDENTIFICACION</legend>
 			<div>
 				<label for="">Caja / Unidad de Archivamiento :</label>
-				<input type="text" class="form-control" id="" name="idcaja" placeholder="unidad de archivcamiento - caja">
+				<select name="idcaja" id="" class="form-control">
+			     	<option value="0" selected="selected">[Seleccionar]</option>
+					<?php 
+					while ($fila = $data->fetch_array(MYSQLI_ASSOC)) {					 
+					?>
+					<option value="<?php echo $fila['idcaja']; ?>"><?php echo $fila['caja'];?></option>
+					<?php } ?>
+				</select>
 			</div>
 			<div class="form-group">
 				<label for="">Seccion:</label>
@@ -50,8 +61,8 @@ require("../moduloB/models/catalogo.model.php");
 				<label for="">Nivel de Descripcon:</label>
 				<select name="nivdescrip" id="" class="form-control">
 					<option value="0">[Seleccionar]</option>
-					<option value="selected">Unidad Documental Compuesta</option>
-					<option value="selected">Unidad Documental Simple</option>
+					<option value="">Unidad Documental Compuesta</option>
+					<option value="">Unidad Documental Simple</option>
 				</select>
 			</div>
 			<div class="form-group">

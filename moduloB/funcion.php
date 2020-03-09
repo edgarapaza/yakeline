@@ -1,26 +1,35 @@
-<!doctype html>
+<?php
+require("../moduloB/models/funcion.model.php");
+
+$funcion = new Funcion();
+$data = $funcion->ConsultarPersonal();
+
+?>
 <html lang="es-ES">
 <head>
 	<title>
 		
 	</title>
+	<link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
 </head>
 <body>
 	<div class="container">
 		
 	<h1>Funcion</h1>
-		<form action="#" method="POST" role="form">
+		<form action="controllers/funcion.controller.php" method="POST" role="form">
 			<div class="form-group">
 				<label for="">Funcion :</label>
-				<input type="text" class="form-control" id="" name="codreferencia" placeholder="Funcion">
+				<input type="text" class="form-control" id="" name="funcion" placeholder="Funcion">
 			</div>
 			<div>
 				<label for="">Personal:</label>
 				<select name="idpersonal" id="" class="form-control">
-					<option value="0">[Seleccionar]</option>
-					<option value="selected">Personal 01</option>
-					<option value="selected">Personal 02</option>
-					<option value="selected">Personal 03</option>
+			     	<option value="0" selected="selected">[Seleccionar]</option>
+					<?php 
+					while ($fila = $data->fetch_array(MYSQLI_ASSOC)) {					 ?>
+
+					<option value="<?php echo $fila['id_personal']; ?>"><?php echo $fila['nombre']." ".$fila['apellidos'];?></option>
+					<?php } ?>
 				</select>
 			</div>
 			<div class="form-group">

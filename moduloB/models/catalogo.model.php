@@ -38,8 +38,4 @@ class Catalogo
 		return $response;
 	}
 
-	public function CrearOficinas()
-	{
-		
-	}
 }

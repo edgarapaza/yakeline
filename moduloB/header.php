@@ -1,9 +1,9 @@
-<!doctype html>
 <html lang="es-ES">
 
 <head>
   <title>catalogo</title>
-  
+   <script src="js/cargarUrl.js"></script>
+   <link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
 </head>
 
 <body>
