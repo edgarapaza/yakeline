@@ -11,9 +11,6 @@ class Funcion
 		$link = new Conexion();
 		$this->conn = $link->Conectar();
 		return $this->conn;
-
-		$this->conn2 = $link->Conectar2();
-		return $this->conn2;
 	}
 
 	public function Guardar($funcion, $idpersonal, $fecinicio, $feccese)
@@ -43,17 +40,17 @@ class Funcion
 
 	public function ConsultarPersonal()
 	{
-		$sql = "SELECT id_personal, nombre, apellidos FROM personal";
+		/*$sql = "SELECT id_personal, nombre, apellidos FROM personal";
 		
-		if(!$response = $this->conn2->query($sql))
+		if(!$response = $this->conn->query($sql))
 		{
-			echo "Error: ". mysqli_error($this->conn2);
+			echo "Error: ". mysqli_error($this->conn);
 			exit();
 		}
 		$data = $response->fetch_array(MYSQLI_ASSOC);
 
 		return $data;
 		$this->conn->close();
-		
+		*/
 	}
 }
