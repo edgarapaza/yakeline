@@ -1,5 +1,6 @@
 <?php
 require("../moduloB/models/funcion.model.php");
+
 $funcion = new Funcion();
 $data = $funcion->ConsultarPersonal();
 
@@ -22,8 +23,11 @@ $data = $funcion->ConsultarPersonal();
 				<label for="">Personal:</label>
 				<select name="idpersonal" id="" class="form-control">
 			     	<option value="0" selected="selected">[Seleccionar]</option>
-			     	<option value="1" selected="selected">2</option>
-					
+					<?php 
+					while ($fila = $data->fetch_array(MYSQLI_ASSOC)) {					 
+					?>
+					<option value="<?php echo $fila['id_personal']; ?>"><?php echo $fila['nombre']." ".$fila['apellidos'];?></option>
+					<?php } ?>
 				</select>
 			</div>
 			<div class="form-group">

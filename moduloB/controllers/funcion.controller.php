@@ -6,8 +6,8 @@ $idpersonal = $_POST['idpersonal'];
 $fecinicio = $_POST['fecinicio'];
 $feccese = $_POST['feccese'];
 
-$funcion = new Funcion();
-$funcion->Guardar($funcion, $idpersonal, $fecinicio, $feccese);
+$func = new Funcion();
+$func->Guardar($funcion, $idpersonal, $fecinicio, $feccese);
 
 header("Location: ../index.php");
 ?>

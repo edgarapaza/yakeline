@@ -1,10 +1,10 @@
 <?php
 require_once("Conexion.php");
-//require_once("conexion_remota.php");
+require_once("conexion_remota.php");
 
 class Funcion
 {
-	private $conn, $conn2;
+	private $conn;
 
 	function __construct()
 	{
@@ -40,7 +40,7 @@ class Funcion
 
 	public function ConsultarPersonal()
 	{
-		/*$sql = "SELECT id_personal, nombre, apellidos FROM personal";
+		$sql = "SELECT id_personal, nombre, apellidos FROM personal";
 		
 		if(!$response = $this->conn->query($sql))
 		{
@@ -51,6 +51,6 @@ class Funcion
 
 		return $data;
 		$this->conn->close();
-		*/
+		
 	}
 }
