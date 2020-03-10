@@ -8,11 +8,13 @@
 
 <body>
   <div class="wrapper ">
-    <li class="nav-item ">
-            
-      <a href="#"  id="catalogo" >
-        <p>Catalogo</p>
-      </a>
-
-    </li>
+  	<h4>Menu</h4>
+  	<ul>
+	    <li class="nav-item ">
+	    	<a href="caja.php">Caja</a>
+	    </li>
+	    <li>
+	    	<a href="catalogo.php">Catalogo</a>
+	    </li>
+  	</ul>
    
