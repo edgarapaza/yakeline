@@ -38,19 +38,5 @@ class Funcion
 		return $response;
 	}
 
-	public function ConsultarPersonal()
-	{
-		$sql = "SELECT id_personal, nombre, apellidos FROM personal";
-		
-		if(!$response = $this->conn->query($sql))
-		{
-			echo "Error: ". mysqli_error($this->conn);
-			exit();
-		}
-		$data = $response->fetch_array(MYSQLI_ASSOC);
 
-		return $data;
-		$this->conn->close();
-		
-	}
 }
