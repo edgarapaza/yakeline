@@ -3,7 +3,7 @@
 class Conexion {
 
 	public function Conectar() {
-
+		echo "Hola";
 
 		#require_once ("config.php");
 		$mysqli = new mysqli("localhost","coraima", "A@dmin0215.,$", "catalogo");
