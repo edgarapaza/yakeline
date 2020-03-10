@@ -1,9 +1,9 @@
 <?php
-echo "arriba";
+
 class Conexion {
 
 	public function Conectar() {
-		echo "dentro";
+
 
 		#require_once ("config.php");
 		$mysqli = new mysqli("localhost","coraima", "A@dmin0215.,$", "catalogo");
@@ -14,7 +14,7 @@ class Conexion {
 			exit();
 		}
 
-		echo $mysqli->host_info. "Dentro de la conexion1";
+		#echo $mysqli->host_info. "Dentro de la conexion1";
 		return $mysqli;
 	}
 
@@ -27,7 +27,7 @@ class Conexion {
 			echo "Error al contenctar a MySQL: (".$mysqli->connect_errno.") ".$mysqli->connect_error;
 			exit();
 		}
-		echo $mysqli->host_info. "Dentro de la conexion2";
+		#echo $mysqli->host_info. "Dentro de la conexion2";
 		return $mysqli;
 	}
 	
