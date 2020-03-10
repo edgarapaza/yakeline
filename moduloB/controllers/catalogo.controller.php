@@ -1,6 +1,7 @@
 <?php
 require("../models/catalogo.model.php");
 $idcaja = $_POST['idcaja'];
+$direccion = $_POST['direccion'];
 $codreferencia = $_POST['codreferencia'];
 $seccion = $_POST['seccion'];
 $titulo = $_POST['titulo'];
@@ -25,7 +26,7 @@ $estado = $_POST['estado'];
 $obs = $_POST['obs'];
 
 $catalogo = new Catalogo();
-$catalogo->Guardar($idcaja, $codreferencia, $seccion, $titulo, $fecdocumento, $nivdescrip, $volunimed, $productor, $formaingreso, $contenido, $dimensiones, $conservacion, $instdescrip, $estadoconservacion, $copias, $notas, $persdescripcion, $persdirector, $persrevisor, $fecdescripcion, $fecfinalizacion, $estado, $obs);
+$catalogo->Guardar($idcaja, $direccion, $codreferencia, $seccion, $titulo, $fecdocumento, $nivdescrip, $volunimed, $productor, $formaingreso, $contenido, $dimensiones, $conservacion, $instdescrip, $estadoconservacion, $copias, $notas, $persdescripcion, $persdirector, $persrevisor, $fecdescripcion, $fecfinalizacion, $estado, $obs);
 
 header("Location: ../index.php");
 ?>

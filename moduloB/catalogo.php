@@ -4,6 +4,11 @@ require("../moduloB/models/caja.model.php");
 
 $cajas = new Caja();
 $data = $cajas->Consultar();
+
+$personal = new Catalogo();
+$data2 = $personal->ConsultarPersonal();
+$data3 = $personal->ConsultarPersonal();
+$data4 = $personal->ConsultarPersonal();
 ?>
 <html lang="es-ES">
 <head>
@@ -22,10 +27,10 @@ $data = $cajas->Consultar();
 			<div class="form-group">
 				<p>
 					PE / ARP / 
-				<select name="codreferencia" id="" class="form-control">
-					<option value="0">[Seleccionar]</option>
-					<option value="">Archivo Historico</option>
-					<option value="">Archivo Intermedio</option>
+				<select name="direccion" id="" class="form-control">
+					<option value="0" selected="selected">[Seleccionar]</option>
+					<option value="AH">Archivo Historico</option>
+					<option value="AI">Archivo Intermedio</option>
 				</select>
 				 / INT / 
 				 <input type="text" class="form-control" id="" name="codreferencia" placeholder="codigo de referencia">
@@ -60,9 +65,9 @@ $data = $cajas->Consultar();
 			<div class="form-group">
 				<label for="">Nivel de Descripcon:</label>
 				<select name="nivdescrip" id="" class="form-control">
-					<option value="0">[Seleccionar]</option>
-					<option value="">Unidad Documental Compuesta</option>
-					<option value="">Unidad Documental Simple</option>
+					<option value="0" selected="selected">[Seleccionar]</option>
+					<option value="Unidad Documental Compuesta">Unidad Documental Compuesta</option>
+					<option value="Unidad Documental Simple">Unidad Documental Simple</option>
 				</select>
 			</div>
 			<div class="form-group">
@@ -132,15 +137,36 @@ $data = $cajas->Consultar();
 			<legend>AREA DE CONTROL DE DESCRIPCION</legend>
 			<div class="form-group">
 				<label for="">Descripcion a Cargo de:</label>
-				<input type="text" class="form-control" id="" name="persdescripcion" placeholder="Descripcion a Cargo de">
+				<select name="persdescripcion" id="" class="form-control">
+			     	<option value="0" selected="selected">[Seleccionar]</option>
+					<?php 
+					while ($fila = $data2->fetch_array(MYSQLI_ASSOC)) {					 
+					?>
+					<option value="<?php echo $fila['id_personal']; ?>"><?php echo $fila['personal'];?></option>
+					<?php } ?>
+				</select>
 			</div>
 			<div class="form-group">
 				<label for="">Direccion a cargo de:</label>
-				<input type="text" class="form-control" id="" name="persdirector" placeholder="personal a cargo de direccion">
+				<select name="persdirector" id="" class="form-control">
+			     	<option value="0" selected="selected">[Seleccionar]</option>
+					<?php 
+					while ($fila = $data3->fetch_array(MYSQLI_ASSOC)) {					 
+					?>
+					<option value="<?php echo $fila['id_personal']; ?>"><?php echo $fila['personal'];?></option>
+					<?php } ?>
+				</select>
 			</div>
 			<div class="form-group">
 				<label for="">Revision a cargo de:</label>
-				<input type="text" class="form-control" id="" name="persrevisor" placeholder="Personal a cargo de revision">
+				<select name="persrevisor" id="" class="form-control">
+			     	<option value="0" selected="selected">[Seleccionar]</option>
+					<?php 
+					while ($fila = $data4->fetch_array(MYSQLI_ASSOC)) {					 
+					?>
+					<option value="<?php echo $fila['id_personal']; ?>"><?php echo $fila['personal'];?></option>
+					<?php } ?>
+				</select>			
 			</div>
 			<div class="form-group">
 				<label for="">Fecha de Inicio de Descripcion:</label>
