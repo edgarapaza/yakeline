@@ -1,8 +1,9 @@
 <?php
 require("../moduloB/models/funcion.model.php");
+require("../moduloB/models/catalogo.model.php");
 
-$funcion = new Funcion();
-$data = $funcion->ConsultarPersonal();
+$personal = new Catalogo();
+$data = $personal->ConsultarPersonal();
 
 ?>
 <html lang="es-ES">
@@ -26,7 +27,7 @@ $data = $funcion->ConsultarPersonal();
 					<?php 
 					while ($fila = $data->fetch_array(MYSQLI_ASSOC)) {					 
 					?>
-					<option value="<?php echo $fila['id_personal']; ?>"><?php echo $fila['nombre']." ".$fila['apellidos'];?></option>
+					<option value="<?php echo $fila['id_personal']; ?>"><?php echo $fila['personal'];?></option>
 					<?php } ?>
 				</select>
 			</div>

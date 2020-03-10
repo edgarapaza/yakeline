@@ -31,7 +31,8 @@ class Caja
 
 	public function Consultar()
 	{
-		$sql = "SELECT idcaja,idpersonal,caja,fondo,seccion,fechaextremainicio,fechaextremafinal,expedienteinicio,expedientefinal,fecCreated,estado,fecCierre FROM caja;";
+
+		$sql = "SELECT idcaja, idpersonal, caja, fondo, seccion, fechaextremainicio, fechaextremafinal, expedienteinicio, expedientefinal, fecCreated, estado, fecCierre FROM caja;";
 
 		$response = $this->conn->query($sql);
 
