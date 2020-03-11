@@ -112,7 +112,25 @@ $data4 = $personal->ConsultarPersonal();
   	
   </div>
   <div class="caja2">
+		<fieldset>
+			<legend>AREA DE CONTEXTO</legend>
+			<div class="form-group">
+				<label for="">Nombre del Productor:</label>
+				<input type="text" class="form-control" id="" name="productor" placeholder="Nombre del Productor">
+			</div>
+			<div class="form-group">
+				<label for="">Formato de Ingreso:</label>
+				<input type="text" class="form-control" id="" name="formaingreso" placeholder="Formato de Ingreso">
+			</div>
+		</fieldset>
 
+		<fieldset>
+			<legend>AREA DE CONTENIDO Y ESCRITURA</legend>
+			<div class="form-group">
+				<label for="">Alcance y Contenido:</label>
+				<textarea type="text" class="form-control" id="" name="contenido" cols="30" rows="7" placeholder="Alcance y contenido"> </textarea>
+			</div>
+		</fieldset>
   	
   </div>
   <div class="caja3">
