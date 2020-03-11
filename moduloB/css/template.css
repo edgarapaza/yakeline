@@ -1,5 +1,4 @@
 *{
-
   margin: 0;
   padding: 0;
   font-family: 'Barlow', sans-serif;
@@ -14,8 +13,8 @@
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
   grid-template-areas: "izquierda encabezado encabezado encabezado encabezado" 
-                      "izquierda caja1 caja2 caja3 caja4" 
-                  "izquierda caja1 caja2 caja3 caja4";
+                       "izquierda caja1 caja2 caja3 caja4" 
+                       "izquierda caja1 caja2 caja3 caja4";
 }
 
 .izquierda { 
