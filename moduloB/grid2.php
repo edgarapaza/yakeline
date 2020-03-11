@@ -18,16 +18,19 @@
 			background-color: #D6D6D6;
 			padding: 5px;
 			color: white;
-			height: 300px;
 		}
 
 		.cabecera { 
 			grid-area: cabecera;
 			background-color: gray;
 			color: white;
+			height: 150px;
 		}
 
-		.caja1  { grid-area: caja1 ; }
+		.caja1  { 
+			grid-area: caja1; 
+			background-color: gray;
+			 }
 
 		.caja2  { grid-area: caja2 ; }
 
