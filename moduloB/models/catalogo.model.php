@@ -24,7 +24,7 @@ class Catalogo
 	public function Guardar($idcaja,$direccion, $codreferencia, $seccion, $titulo, $fecdocumento, $nivdescrip, $volunimed, $productor, $formaingreso, $contenido, $dimensiones, $conservacion, $instdescrip, $estadoconservacion, $copias, $notas, $persdescripcion, $persdirector, $persrevisor, $fecdescripcion, $fecfinalizacion, $estado, $obs)
 	{
 		$fechaActual = date('Y-m-d H:i:s');
-		$sql = "INSERT INTO catalogos VALUES(null, '$idcaja', 'PE/ARP/$direccion/INT/$codreferencia', '$seccion', '$titulo', '$fecdocumento', '$nivdescrip', '$volunimed', '$productor', '$formaingreso', '$contenido', '$dimensiones', '$conservacion', '$instdescrip', '$estadoconservacion', '$copias', '$notas', '$persdescripcion', '$persdirector', '$persrevisor', '$fecdescripcion', '$fecfinalizacion', '$fechaActual', '1', '$obs');";
+		$sql = "INSERT INTO catalogos VALUES(null, '$idcaja', 'PE/ARP/$direccion/INT/$codreferencia', '$seccion', '$titulo', '$fecdocumento', '$nivdescrip', '$volunimed', '$productor', '$formaingreso', '$contenido', '$dimensiones', '$conservacion', '$instdescrip', '$estadoconservacion', '$copias', '$notas', '$persdescripcion', '$persdirector', '$persrevisor', '$fecdescripcion', '$fecfinalizacion', '$fechaActual', 1, '$obs');";
 
 		if(!$this->conn->query($sql)){
 			echo "Error: " . mysqli_error($this->conn);

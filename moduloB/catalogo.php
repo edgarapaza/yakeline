@@ -1,4 +1,5 @@
 <?php
+include("header.php");
 require("../moduloB/models/catalogo.model.php");
 require("../moduloB/models/caja.model.php");
 
@@ -10,76 +11,28 @@ $data2 = $personal->ConsultarPersonal();
 $data3 = $personal->ConsultarPersonal();
 $data4 = $personal->ConsultarPersonal();
 ?>
-<html lang="es-ES">
-<head>
-	<title></title>
-	<link rel="stylesheet" type="text/css" href="css/template.css">
-	<link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
-  <link href="https://fonts.googleapis.com/css?family=Barlow&display=swap" rel="stylesheet"> 
 
-</head>
-<body>
-<<<<<<< HEAD
-<style type="text/css">
-	.grid-container {
-  	   display: grid;
-	   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-	   grid-template-rows: 1fr 1fr 1fr;
-	   grid-template-areas: "izquierda encabezado encabezado encabezado encabezado" 
-	                       "izquierda caja1 caja2 caja3 caja4" 
-                       "izquierda caja1 caja2 caja3 caja4";
-	}
-
-	.izquierda { 
-		grid-area: izquierda;
-		background-color: #D6D6D6;
-		padding: 5px;
-		color: white;
-	}
-	.encabezado { 
-		grid-area: encabezado;
-		background-color: gray;
-		color: white;
-	}
-
-	.caja1 { grid-area: caja1; }
-	.caja2 { grid-area: caja2; }
-	.caja3 { grid-area: caja3; }
-	.caja4 { grid-area: caja4; }
-
-</style>
-=======
-
->>>>>>> e7799279b4d24a48d3d9fa71ee6adfaaf9631cce
-</body>
 <form action="controllers/catalogo.controller.php" method="POST" role="form">
-<div class="grid-container">
+	<div class="grid-container">
   <div class="izquierda">
-<<<<<<< HEAD
 
   	
-=======
-  	<h4>Personal</h4>
->>>>>>> e7799279b4d24a48d3d9fa71ee6adfaaf9631cce
   </div>
   <div class="encabezado">
-  	<h1>FONDO DOCUMENTAL: INTENDENCIA</h1>
-    
+  	
   </div>
   <div class="caja1">
 		<fieldset>
 			<legend>Codigo de Referencia</legend>
 			<div class="form-group">
-				<p>
-					PE / ARP / 
+				<label for="">Archivo :</label>
 				<select name="direccion" id="" class="form-control">
 					<option value="0" selected="selected">[Seleccionar]</option>
 					<option value="AH">Archivo Historico</option>
 					<option value="AI">Archivo Intermedio</option>
 				</select>
-				 / INT / 
+				 <label for="">N° de Caja : </label>
 				 <input type="text" class="form-control" id="" name="codreferencia" placeholder="codigo de referencia">
-				</p>
 			</div>
 		</fieldset>	
 		<fieldset>
@@ -140,17 +93,110 @@ $data4 = $personal->ConsultarPersonal();
 			<legend>AREA DE CONTENIDO Y ESCRITURA</legend>
 			<div class="form-group">
 				<label for="">Alcance y Contenido:</label>
-				<textarea type="text" class="form-control" id="" name="contenido" cols="30" rows="7" placeholder="Alcance y contenido"> </textarea>
+				<textarea type="text" class="form-control" id="" name="contenido" cols="30" rows="15" placeholder="Alcance y contenido"> </textarea>
 			</div>
 		</fieldset>
   	
   </div>
   <div class="caja3">
-  	
+  	<fieldset>
+			<legend>AREA DE CONDICIONES DE ACCESO Y USO</legend>
+			<div class="form-group">
+				<label for="">Dimensiones:</label>
+				<input type="text" class="form-control" id="" name="dimensiones" placeholder="Dimensiones">
+			</div>
+			<div class="form-group">
+				<label for="">Conservacion:</label>
+				<input type="text" class="form-control" id="" name="conservacion" placeholder="Conservacion">
+			</div>
+			<div class="form-group">
+				<label for="">Instrumentos de Descripcion:</label>
+				<input type="text" class="form-control" id="" name="instdescrip" placeholder="Instrumentos de Descripcion">
+			</div>
+			<div class="form-group">
+				<label for="">Estado de conservacion:</label>
+				<input type="text" class="form-control" id="" name="estadoconservacion" placeholder="Estado de conservacion">
+			</div>
+		</fieldset>
+
+		<fieldset>
+			<legend>AREA DE DOCUMENTACION ASOCIADA</legend>
+			<div class="form-group">
+				<label for="">Existencia y localizacion de copias:</label>
+				<input type="text" class="form-control" id="" name="copias" placeholder="Existencia y localizacion de copias">
+			</div>
+		</fieldset>
+
+		<fieldset>
+			<legend>AREA DE NOTAS</legend>
+			<div class="form-group">
+				<label for="">Notas:</label>
+				<input type="text" class="form-control" id="" name="notas" placeholder="Notas">
+			</div>
+		</fieldset>
   </div>
   <div class="caja4">
-  	
+  	<fieldset>
+			<legend>AREA DE CONTROL DE DESCRIPCION</legend>
+			<div class="form-group">
+				<label for="">Descripcion a Cargo de:</label>
+				<select name="persdescripcion" id="" class="form-control">
+			     	<option value="0" selected="selected">[Seleccionar]</option>
+					<?php 
+					while ($fila = $data2->fetch_array(MYSQLI_ASSOC)) {					 
+					?>
+					<option value="<?php echo $fila['id_personal']; ?>"><?php echo $fila['personal'];?></option>
+					<?php } ?>
+				</select>
+			</div>
+			<div class="form-group">
+				<label for="">Direccion a cargo de:</label>
+				<select name="persdirector" id="" class="form-control">
+			     	<option value="0" selected="selected">[Seleccionar]</option>
+					<?php 
+					while ($fila = $data3->fetch_array(MYSQLI_ASSOC)) {					 
+					?>
+					<option value="<?php echo $fila['id_personal']; ?>"><?php echo $fila['personal'];?></option>
+					<?php } ?>
+				</select>
+			</div>
+			<div class="form-group">
+				<label for="">Revision a cargo de:</label>
+				<select name="persrevisor" id="" class="form-control">
+			     	<option value="0" selected="selected">[Seleccionar]</option>
+					<?php 
+					while ($fila = $data4->fetch_array(MYSQLI_ASSOC)) {					 
+					?>
+					<option value="<?php echo $fila['id_personal']; ?>"><?php echo $fila['personal'];?></option>
+					<?php } ?>
+				</select>			
+			</div>
+			<div class="form-group">
+				<label for="">Fecha de Inicio de Descripcion:</label>
+				<input type="date" class="form-control" id="" name="fecdescripcion" placeholder="MM/dd/aaa" >
+			</div>
+
+			<div class="form-group">
+				<label for="">Fecha de Finalizacion de Descripcion:</label>
+				<input type="date" class="form-control" id="" name="fecfinalizacion" placeholder="MM/dd/aaa">
+			</div>
+			<div class="form-group">
+				<label for="">Estado:</label>
+				<input type="text" class="form-control" id="" name="estado" placeholder="Estado">
+			</div>
+			<div class="form-group">
+				<label for="">Observaciones:</label>
+				<textarea type="" class="form-control" id="" name="obs" placeholder="Observaciones"></textarea>
+			</div>
+
+		</fieldset> 
   </div>
+
+
 </div>
+<button type="submit" class="btn btn-primary">enviar</button>
+
 </form>
-</html>
+<?php
+include("footer.php");
+?>
