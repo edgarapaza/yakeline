@@ -6,31 +6,21 @@ class Catalogo
 	private $conn;
 	private $conn2;
 
-	public function Conexion1(){
-		//Conexion a la Base de Datos Catalogo
-		$link = new Conexion();
-		$this->conn = $link->Conectar();
-		return $this->conn;
-	}
-/*
-	public function Conexion2(){
-		//Conexion a la Base de Datos AvanceMetas para el Personal
-		$link = new Conexion();
-		$this->conn2 = $link->Conectar2();
-		return $this->conn2;
-	}
-	*/
-
 	public function Guardar($idcaja,$direccion, $codreferencia, $seccion, $titulo, $fecdocumento, $nivdescrip, $volunimed, $productor, $formaingreso, $contenido, $dimensiones, $conservacion, $instdescrip, $estadoconservacion, $copias, $notas, $persdescripcion, $persdirector, $persrevisor, $fecdescripcion, $fecfinalizacion, $estado, $obs)
 	{
+
+		$link = new Conexion();
+		$this->conn = $link->Conectar();
+
 		$fechaActual = date('Y-m-d H:i:s');
-		$sql = "INSERT INTO catalogos VALUES(null, '$idcaja', 'PE/ARP/$direccion/INT/$codreferencia', '$seccion', '$titulo', '$fecdocumento', '$nivdescrip', '$volunimed', '$productor', '$formaingreso', '$contenido', '$dimensiones', '$conservacion', '$instdescrip', '$estadoconservacion', '$copias', '$notas', '$persdescripcion', '$persdirector', '$persrevisor', '$fecdescripcion', '$fecfinalizacion', '$fechaActual', 1, '$obs');";
+		$sql = "INSERT INTO catalogos VALUES(null, '$idcaja', 'PE/ARP/$direccion/INT/$codreferencia', '$seccion', '$titulo', '$fecdocumento', '$nivdescrip', '$volunimed', '$productor', '$formaingreso', '$contenido', '$dimensiones', '$conservacion', '$instdescrip', '$estadoconservacion', '$copias', '$notas', '$persdescripcion', '$persdirector', '$persrevisor', '$fecdescripcion', '$fecfinalizacion', '$fechaActual', '1', '$obs');";
 
 		if(!$this->conn->query($sql)){
 			echo "Error: " . mysqli_error($this->conn);
 			exit();
 		}
 		return true;
+		mysqli_close($this->conn);
 	}
 
 	public function Modificar()
@@ -59,6 +49,8 @@ class Catalogo
 		}
 
 		return $response;	
+
+		mysqli_close($this->conn2);
 	}
 
 }

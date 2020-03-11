@@ -15,8 +15,9 @@ $data4 = $personal->ConsultarPersonal();
 <form action="controllers/catalogo.controller.php" method="POST" role="form">
 	<div class="grid-container">
   <div class="izquierda">
-
-  	
+  	<img src="img/user.png">
+  	<p>Personal</p>
+  	<hr>	
   </div>
   <div class="encabezado">
   	
@@ -180,21 +181,18 @@ $data4 = $personal->ConsultarPersonal();
 				<label for="">Fecha de Finalizacion de Descripcion:</label>
 				<input type="date" class="form-control" id="" name="fecfinalizacion" placeholder="MM/dd/aaa">
 			</div>
-			<div class="form-group">
-				<label for="">Estado:</label>
-				<input type="text" class="form-control" id="" name="estado" placeholder="Estado">
-			</div>
+			
 			<div class="form-group">
 				<label for="">Observaciones:</label>
 				<textarea type="" class="form-control" id="" name="obs" placeholder="Observaciones"></textarea>
 			</div>
+			<button type="submit" class="btn btn-primary">GUARDAR</button>
+
 
 		</fieldset> 
   </div>
 
-
 </div>
-<button type="submit" class="btn btn-primary">enviar</button>
 
 </form>
 <?php
