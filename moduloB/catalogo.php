@@ -13,50 +13,27 @@ $data4 = $personal->ConsultarPersonal();
 <html lang="es-ES">
 <head>
 	<title></title>
+	<link rel="stylesheet" type="text/css" href="css/template.css">
 	<link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
+  <link href="https://fonts.googleapis.com/css?family=Barlow&display=swap" rel="stylesheet"> 
+
 </head>
 <body>
-<style type="text/css">
-	.grid-container {
-  	   display: grid;
-	   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-	   grid-template-rows: 1fr 1fr 1fr;
-	   grid-template-areas: "izquierda encabezado encabezado encabezado encabezado" 
-	                       "izquierda caja1 caja2 caja3 caja4" 
-                       "izquierda caja1 caja2 caja3 caja4";
-	}
 
-	.izquierda { 
-		grid-area: izquierda;
-		background-color: #D6D6D6;
-		padding: 5px;
-		color: white;
-		height: 700px; 
-	}
-	.encabezado { 
-		grid-area: encabezado;
-		background-color: gray;
-		color: white;
-		height: 150px; 
-	}
-
-	.caja1 { 
-		grid-area: caja1; 
-	}
-	.caja2 { grid-area: caja2; }
-
-	.caja3 { grid-area: caja3; }
-
-	.caja4 { grid-area: caja4; }
-</style>
 </body>
 <form action="controllers/catalogo.controller.php" method="POST" role="form">
 <div class="grid-container">
   <div class="izquierda">
-  	
+  	<h4>Personal</h4>
   </div>
   <div class="encabezado">
-  	
+  	<h1>FONDO DOCUMENTAL: INTENDENCIA</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
   </div>
   <div class="caja1">
   	
