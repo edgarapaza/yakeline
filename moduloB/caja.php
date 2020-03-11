@@ -3,9 +3,7 @@ require("../moduloB/models/caja.model.php");
 ?>
 <html lang="es-ES">
 <head>
-	<title>
-		
-	</title>
+	<title></title>
 	<link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
 </head>
 <body>
