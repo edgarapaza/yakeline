@@ -94,7 +94,7 @@ $data4 = $personal->ConsultarPersonal();
 			<legend>AREA DE CONTENIDO Y ESCRITURA</legend>
 			<div class="form-group">
 				<label for="">Alcance y Contenido:</label>
-				<textarea type="text" class="form-control" id="" name="contenido" cols="30" rows="15" placeholder="Alcance y contenido"> </textarea>
+				<textarea type="text" class="form-control" id="" name="contenido" cols="30" rows="17" placeholder="Alcance y contenido"> </textarea>
 			</div>
 		</fieldset>
   	
