@@ -9,12 +9,16 @@ require("../moduloB/models/caja.model.php");
 			<p>Personal</p>
 			<hr>
 
-			<button type="button" name="btnCatalogo" id="catalogo" class="btn btn-primary">CATALOGO</button>
-			<button type="button" name="btnCatalogo" id="catalogo" class="btn btn-primary">BUSCAR</button>
+			<a href="caja.php" id="nuevo" class="btn btn-primary">NUEVA CAJA</a>
+			<br>	<br>
+			<a href="caja_listado.php" id="abiertos" class="btn btn-primary">PROYECTOS ACTIVOS</a>
+			<br> <br>
+			<a href="caja_cerrados.php" id="cerrados" class="btn btn-primary">PROYECTOS CERRADOS</a>
 	  	
 	  	</div>
 		<div class="encabezado">
-		  	<h2>FONDO DOCUMENTAL</h2>
+		  	<h2>FONDO DOCUMENTAL: INTENDENCIA</h2>
+		  	<p>Crear nuevo proyecto</p>
 		</div>
 		<div class="caja1">
 		  	<form action="controllers/caja.controller.php" method="POST" role="form">

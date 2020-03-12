@@ -12,30 +12,42 @@ class Caja
 		return $this->conn;
 	}
 
-	public function Guardar($idpersonal, $caja, $fondo, $seccion, $fechaextrema, $estado)
+	public function Guardar($idpersonal,$caja,$fondo,$seccion,$fechaextremainicio,$fechaextremafinal,$expedienteinicio,$expedientefinal)
 	{
-		$fechaActual = date('Y-m-d H:i:s');
-		$sql = "INSERT INTO caja VALUES(null, '$idpersonal', '$caja', '$fondo', '$seccion', '$fechaextrema', '$fechaActual', '$estado', '$fechaActual');";
+		$fecCreated = date('Y-m-d H:i:s');
+		
+		$sql = "INSERT INTO caja VALUES (null,'$idpersonal','$caja','$fondo','$seccion','$fechaextremainicio','$fechaextremafinal','$expedienteinicio','$expedientefinal','$fecCreated',1,null);";
 
 		if(!$this->conn->query($sql)){
 			echo "Error: " . mysqli_error($this->conn);
 			exit();
 		}
-		return true;
-	}
-
-	public function Modificar()
-	{
 		
 	}
 
-	public function Consultar()
+	public function Modificar($idcaja)
+	{
+		$sql = "UPDATE caja SET fondo = 'INTENDENCIA', fechaextremainicio = '1824', 
+fechaextremafinal = '1826', expedienteinicio = '123', expedientefinal = '240' WHERE (idcaja = '$idcaja');";
+
+		if(!$response = $this->conn->query($sql)){
+			echo "Error: " . mysqli_error($this->conn);
+			exit();
+		}		
+	}
+
+	public function Consultar($idpersonal)
 	{
 
-		$sql = "SELECT idcaja, idpersonal, caja, fondo, seccion, fechaextremainicio, fechaextremafinal, expedienteinicio, expedientefinal, fecCreated, estado, fecCierre FROM caja;";
+		$sql = "SELECT idcaja,idpersonal,caja,fondo,seccion,fechaextremainicio AS inicio,fechaextremafinal AS final, expedienteinicio AS exp1,expedientefinal AS exp2 
+			FROM caja WHERE estado = 1 AND idpersonal = $idpersonal;";
+
+		if(!$response = $this->conn->query($sql)){
+			echo "Error: " . mysqli_error($this->conn);
+			exit();
+		}
 
 		$response = $this->conn->query($sql);
-
 		return $response;
 	}
 
