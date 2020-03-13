@@ -13,13 +13,14 @@ class Catalogo
 		$this->conn = $link->Conectar();
 
 		$fechaActual = date('Y-m-d H:i:s');
-		$sql = "";
+		$sql = "INSERT INTO catalogos (idcaja,codreferencia,seccion,titulo,fecdocumento,nivdescrip,volunimed,productor,formaingreso,contenido,dimensiones,conservacion,instdescrip,estadoconservacion,copias,notas,persdescripcion,persdirector,fecdescripcion,fecCreate,estado,obs) 
+		VALUES ('$idcaja','Pe/ARP/$direccion/INT/$codreferencia','$seccion','$titulo','$fecdocumento','$nivdescrip','$volunimed','$productor','$formaingreso','$contenido','$dimensiones','$conservacion','$instdescrip','$estadoconservacion','$copias','$notas','$persdescripcion','$persdirector',now(),now(),1,'$obs');";
 
 		if(!$this->conn->query($sql)){
 			echo "Error: " . mysqli_error($this->conn);
 			exit();
 		}
-		return true;
+		
 		mysqli_close($this->conn);
 	}
 

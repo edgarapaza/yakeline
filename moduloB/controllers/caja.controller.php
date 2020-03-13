@@ -5,7 +5,6 @@ require("../models/caja.model.php");
 $link = new Conexion();
 $conn = $link->Conectar();
 
-//if(!empty($_POST['idpersonal']) && !empty($_POST['caja']) && $_POST['fondo']) && !empty($_POST['seccion']) && $_POST['fechaextremainicio']) && !empty($_POST['fechaextremafinal']) && $_POST['expedienteinicio']) && !empty($_POST['expedientefinal']))
 if(!empty($_POST['idpersonal']) && !empty($_POST['caja']) && !empty($_POST['fondo']) && !empty($_POST['seccion']) && !empty($_POST['fechaextremainicio']) && !empty($_POST['fechaextremafinal']) && !empty($_POST['expedienteinicio']) && !empty($_POST['expedientefinal']))
 {
 
