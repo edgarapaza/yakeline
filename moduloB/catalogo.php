@@ -20,7 +20,6 @@ if(!empty($idcaja) && isset($idpersonal)){
 	$data2 = $catalogos->ConsultarPersonal();
 	$data3 = $catalogos->ConsultarPersonal();
 	$data4 = $catalogos->ConsultarPersonal();
-
 ?>
 
 <form action="controllers/catalogo.controller.php" method="POST" role="form">
@@ -77,10 +76,9 @@ if(!empty($idcaja) && isset($idpersonal)){
 				<label for="">Volumen de la unidad de descripción:</label>
 				<input type="text" class="form-control" id="" name="volunimed" placeholder="Volumen de la unidad de descripción">
 			</div>
-
 		</fieldset>
-  	
   </div>
+
   <div class="caja2">
 		<fieldset>
 			<legend>AREA DE CONTEXTO</legend>
@@ -101,8 +99,8 @@ if(!empty($idcaja) && isset($idpersonal)){
 				<textarea type="text" class="form-control" id="" name="contenido" cols="30" rows="10" placeholder="Alcance y contenido"> </textarea>
 			</div>
 		</fieldset>
-  	
   </div>
+
   <div class="caja3">
   	<fieldset>
 			<legend>AREA DE CONDICIONES DE ACCESO Y USO</legend>
@@ -130,6 +128,7 @@ if(!empty($idcaja) && isset($idpersonal)){
 			</div>
 		</fieldset>
   </div>
+
   <div class="caja4">
   		<div class="form-group">
 			<label for="">Notas:</label>
@@ -158,11 +157,8 @@ if(!empty($idcaja) && isset($idpersonal)){
 
 		</fieldset> 
   </div>
-
 </div>
-
 </form>
-
 
 <?php
 include("footer.php");
