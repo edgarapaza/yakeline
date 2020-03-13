@@ -6,7 +6,7 @@ class Catalogo
 	private $conn;
 	private $conn2;
 
-	public function Guardar($idcaja, $direccion, $codreferencia, $seccion, $titulo, $fecdocumento, $nivdescrip, $volunimed, $productor, $formaingreso, $contenido, $dimensiones, $conservacion, $instdescrip, $estadoconservacion, $copias, $notas, $persdescripcion, $persdirector, $obs)
+	public function Guardar($idcaja, $direccion, $codreferencia, $seccion, $titulo, $fecdocumento, $nivdescrip, $volunimed, $productor, $formaingreso, $contenido,$dimension, $dimensiones, $conservacion, $instdescrip, $estadoconservacion, $copias, $notas, $persdescripcion, $persdirector, $obs)
 	{
 
 		$link = new Conexion();
@@ -14,7 +14,7 @@ class Catalogo
 
 		$fechaActual = date('Y-m-d H:i:s');
 		$sql = "INSERT INTO catalogos (idcaja,codreferencia,seccion,titulo,fecdocumento,nivdescrip,volunimed,productor,formaingreso,contenido,dimensiones,conservacion,instdescrip,estadoconservacion,copias,notas,persdescripcion,persdirector,fecdescripcion,fecCreate,estado,obs) 
-		VALUES ('$idcaja','Pe/ARP/$direccion/INT/$codreferencia','$seccion','$titulo','$fecdocumento','$nivdescrip','$volunimed','$productor','$formaingreso','$contenido','$dimensiones','$conservacion','$instdescrip','$estadoconservacion','$copias','$notas','$persdescripcion','$persdirector',now(),now(),1,'$obs');";
+		VALUES ('$idcaja','PE/ARP/$direccion/INT/$codreferencia','$seccion','$titulo','$fecdocumento','$nivdescrip','$volunimed','$productor','$formaingreso','$contenido','$dimension Cm. X $dimensiones Cm.','$conservacion','$instdescrip','$estadoconservacion','$copias','$notas','$persdescripcion','$persdirector',now(),now(),1,'$obs');";
 
 		if(!$this->conn->query($sql)){
 			echo "Error: " . mysqli_error($this->conn);

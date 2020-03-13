@@ -32,26 +32,18 @@ if(!empty($idcaja) && isset($idpersonal)){
   </div>
   <div class="encabezado">
   	<h4>FONDO DOCUMENTAL: INTENDENCIA</h4>
-  	<p></p>
   	<p>Personal: Chester Zamudio</p>
+  	<h6>CODIGO DE REFERENCIA : 
+  		PE/ARP/<?php echo $datosCaja['fondo']; ?>
+		/<?php echo $datosCaja['caja'];?>
+  	</h6>
   </div>
   <div class="caja1">
+		
 		<fieldset>
-			<legend>CODIGO DE REFERENCIA</legend>
-			<div class="form-group">
-				<label for="">
-					PE/ARP/<?php echo $datosCaja['fondo']; ?>
-					/<?php echo $datosCaja['caja'];?>
-				
-				</label>
-				
-			</div>
-		</fieldset>	
-		<fieldset>
-			<legend>AREA DE IDENTIFICACION</legend>
+			<legend>AREA IDENTIFICACION</legend>
 			<div>
-				<label for="">Archivo :</label>
-				<input type="text" name="idcaja" value="<?php echo $idcaja;?>">
+				<input type="hidden" name="idcaja" value="<?php echo $idcaja;?>">
 				<select name="direccion" id="" class="form-control">
 					<option value="AH" selected="selected">Archivo Historico</option>
 					<option value="AI">Archivo Intermedio</option>
@@ -106,7 +98,7 @@ if(!empty($idcaja) && isset($idpersonal)){
 			<legend>AREA DE CONTENIDO Y ESCRITURA</legend>
 			<div class="form-group">
 				<label for="">Alcance y Contenido:</label>
-				<textarea type="text" class="form-control" id="" name="contenido" cols="30" rows="17" placeholder="Alcance y contenido"> </textarea>
+				<textarea type="text" class="form-control" id="" name="contenido" cols="30" rows="10" placeholder="Alcance y contenido"> </textarea>
 			</div>
 		</fieldset>
   	
@@ -116,11 +108,9 @@ if(!empty($idcaja) && isset($idpersonal)){
 			<legend>AREA DE CONDICIONES DE ACCESO Y USO</legend>
 			<div class="form-group">
 				<label for="">Dimensiones:</label>
-				<input type="text" class="form-control" id="" name="dimensiones" placeholder="Dimensiones">
-			</div>
-			<div class="form-group">
-				<label for="">Conservacion:</label>
-				<input type="text" class="form-control" id="" name="conservacion" placeholder="Conservacion">
+				<br>
+				<input type="text" name="dimension" style="width :90px;">Cm. X 
+				<input type="text" name="dimensiones" style="width :90px;">Cm.
 			</div>
 			<div class="form-group">
 				<label for="">Instrumentos de Descripcion:</label>
@@ -139,27 +129,23 @@ if(!empty($idcaja) && isset($idpersonal)){
 				<input type="text" class="form-control" id="" name="copias" placeholder="Existencia y localizacion de copias">
 			</div>
 		</fieldset>
-
-		<fieldset>
-			<legend>AREA DE NOTAS</legend>
-			<div class="form-group">
-				<label for="">Notas:</label>
-				<input type="text" class="form-control" id="" name="notas" placeholder="Notas">
-			</div>
-		</fieldset>
   </div>
   <div class="caja4">
+  		<div class="form-group">
+			<label for="">Notas:</label>
+			<input type="text" class="form-control" id="" name="notas" placeholder="Notas">
+		</div>
   	<fieldset>
 			<legend>AREA DE CONTROL DE DESCRIPCION</legend>
 			<div class="form-group">
 				<label for="">Descripcion a Cargo de:</label>
-				<input type="text" name="persdescripcion" value="<?php echo $idpersonal;?>">
+				<input type="hidden" name="persdescripcion" value="<?php echo $idpersonal;?>">
 				<p>Chester Zamudio</p>
 				
 			</div>
 			<div class="form-group">
 				<label for="">Direccion a cargo de:</label>
-				<input type="text" name="persdirector" value="<?php echo $idjefearea;?>">
+				<input type="hidden" name="persdirector" value="<?php echo $idjefearea;?>">
 				<p>Sonia Sotomayor</p>
 			</div>
 			<div class="form-group">
