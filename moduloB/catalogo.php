@@ -162,8 +162,8 @@ if(!empty($idcaja) && isset($idpersonal)){
 				<input type="text" name="persdirector" value="<?php echo $idjefearea;?>">
 				<p>Sonia Sotomayor</p>
 			</div>
-
 			<div class="form-group">
+
 				<label for="">Observaciones:</label>
 				<textarea type="" class="form-control" id="" name="obs" placeholder="Observaciones"></textarea>
 			</div>
