@@ -37,6 +37,7 @@ fechaextremafinal = '1826', expedienteinicio = '123', expedientefinal = '240' WH
 	}
 
 	public function Consultar($idpersonal)
+	//consulta CADA CAJA COMO PROYECTO
 	{
 
 		$sql = "SELECT idcaja,idpersonal,caja,fondo,seccion,fechaextremainicio AS inicio,fechaextremafinal AS final, expedienteinicio AS exp1,expedientefinal AS exp2 
@@ -50,5 +51,24 @@ fechaextremafinal = '1826', expedienteinicio = '123', expedientefinal = '240' WH
 		$response = $this->conn->query($sql);
 		return $response;
 	}
+
+	public function ConsultarCaja($idcaja)
+	//consulta a la tabla caja  DETALLES DE LA CAJA
+	{
+
+		$sql = "SELECT idcaja,idpersonal,caja,fondo,seccion,fechaextremainicio AS inicio,fechaextremafinal AS final, expedienteinicio AS exp1,expedientefinal AS exp2 
+			FROM caja WHERE estado = 1 AND idcaja = $idcaja;";
+
+		if(!$response = $this->conn->query($sql)){
+			echo "Error: " . mysqli_error($this->conn);
+			exit();
+		}
+
+		$response = $this->conn->query($sql);
+		$data = $response->fetch_array(MYSQLI_ASSOC);
+		return $data;
+	}
+
+	
 
 }

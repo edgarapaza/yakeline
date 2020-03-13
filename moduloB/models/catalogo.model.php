@@ -6,14 +6,14 @@ class Catalogo
 	private $conn;
 	private $conn2;
 
-	public function Guardar($idcaja,$direccion, $codreferencia, $seccion, $titulo, $fecdocumento, $nivdescrip, $volunimed, $productor, $formaingreso, $contenido, $dimensiones, $conservacion, $instdescrip, $estadoconservacion, $copias, $notas, $persdescripcion, $persdirector, $persrevisor, $fecdescripcion, $fecfinalizacion, $estado, $obs)
+	public function Guardar($idcaja, $direccion, $codreferencia, $seccion, $titulo, $fecdocumento, $nivdescrip, $volunimed, $productor, $formaingreso, $contenido, $dimensiones, $conservacion, $instdescrip, $estadoconservacion, $copias, $notas, $persdescripcion, $persdirector, $obs)
 	{
 
 		$link = new Conexion();
 		$this->conn = $link->Conectar();
 
 		$fechaActual = date('Y-m-d H:i:s');
-		$sql = "INSERT INTO catalogos VALUES(null, '$idcaja', 'PE/ARP/$direccion/INT/$codreferencia', '$seccion', '$titulo', '$fecdocumento', '$nivdescrip', '$volunimed', '$productor', '$formaingreso', '$contenido', '$dimensiones', '$conservacion', '$instdescrip', '$estadoconservacion', '$copias', '$notas', '$persdescripcion', '$persdirector', '$persrevisor', '$fecdescripcion', '$fecfinalizacion', '$fechaActual', '1', '$obs');";
+		$sql = "";
 
 		if(!$this->conn->query($sql)){
 			echo "Error: " . mysqli_error($this->conn);
@@ -28,11 +28,15 @@ class Catalogo
 		
 	}
 
-	public function Consultar()
+	public function Consultar($idcaja)
 	{
-		$sql = "SELECT idcatalogo, codreferencia, seccion, titulo, fecdocumento, nivdescrip, volunimed, productor, formaingreso, contenido, dimensiones, conservacion, instdescrip, estadoconservacion, copias, notas, persdescripcion, persdirector, persrevisor, fecdescripcion, fecfinalizacion, fecCreate, estado, obs FROM catalogo; ";
+		$sql = "SELECT idcatalogo, codreferencia, seccion, titulo, fecdocumento, nivdescrip, volunimed, productor, formaingreso, contenido, dimensiones, conservacion, instdescrip, estadoconservacion, copias, notas, persdirector, fecdescripcion, fecfinalizacion, obs FROM catalogos WHERE idcaja = $idcaja";
 
-		$response = $this->conn->query($sql);
+		$link = new Conexion();
+		$conn = $link->Conectar();
+		if(!$response = $conn->query($sql)){
+			echo "Error:" . mysqli_error($conn);
+		}
 
 		return $response;
 	}

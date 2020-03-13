@@ -1,5 +1,6 @@
 <?php
 require("../models/catalogo.model.php");
+
 $idcaja = $_POST['idcaja'];
 $direccion = $_POST['direccion'];
 $codreferencia = $_POST['codreferencia'];
@@ -19,18 +20,32 @@ $copias = $_POST['copias'];
 $notas = $_POST['notas'];
 $persdescripcion = $_POST['persdescripcion'];
 $persdirector = $_POST['persdirector'];
-$persrevisor = $_POST['persrevisor'];
-$fecdescripcion = $_POST['fecdescripcion'];
-$fecfinalizacion = $_POST['fecfinalizacion'];
-$estado = $_POST['estado'];
 $obs = $_POST['obs'];
 
+
 $catalogo = new Catalogo();
-$catalogo->Guardar($idcaja, $direccion, $codreferencia, $seccion, $titulo, $fecdocumento, $nivdescrip, $volunimed, $productor, $formaingreso, $contenido, $dimensiones, $conservacion, $instdescrip, $estadoconservacion, $copias, $notas, $persdescripcion, $persdirector, $persrevisor, $fecdescripcion, $fecfinalizacion, $estado, $obs);
+$catalogo->Guardar($idcaja, $direccion, $codreferencia, $seccion, $titulo, $fecdocumento, $nivdescrip, $volunimed, $productor, $formaingreso, $contenido, $dimensiones, $conservacion, $instdescrip, $estadoconservacion, $copias, $notas, $persdescripcion, $persdirector, $obs);
 
 header("Location: ../index.php");
-?>
 
-<script type="text/javascript">
-  window.close();
-</script>
+
+/*echo $idcaja."<br>" ;
+echo $direccion."<br>" ;
+echo $codreferencia."<br>" ;
+echo $seccion."<br>" ;
+echo $titulo."<br>" ;
+echo $fecdocumento."<br>" ;
+echo $nivdescrip."<br>" ;
+echo $volunimed."<br>" ;
+echo $productor."<br>" ;
+echo $formaingreso."<br>" ;
+echo $contenido."<br>" ;
+echo $dimensiones."<br>" ;
+echo $conservacion."<br>" ;
+echo $instdescrip."<br>" ;
+echo $estadoconservacion."<br>" ;
+echo $copias."<br>" ;
+echo $notas."<br>" ;
+echo $persdescripcion."<br>" ;
+echo $persdirector."<br>" ;
+echo $obs."<br>" ;*/

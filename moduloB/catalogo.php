@@ -1,15 +1,26 @@
 <?php
+session_start();
 include("header.php");
 require("../moduloB/models/catalogo.model.php");
 require("../moduloB/models/caja.model.php");
 
-$cajas = new Caja();
-$data = $cajas->Consultar();
+$idcaja = $_REQUEST['idcaja'];
+//$idpersonal = $_SESSION['idpersonal'];
+$idpersonal = 1;
+$idjefearea = 3;		
 
-$personal = new Catalogo();
-$data2 = $personal->ConsultarPersonal();
-$data3 = $personal->ConsultarPersonal();
-$data4 = $personal->ConsultarPersonal();
+if(!empty($idcaja) && isset($idpersonal)){
+	
+	$catalogos = new Catalogo();
+	$data = $catalogos->Consultar($idcaja);
+
+	$caja_class = new Caja();
+	$datosCaja = $caja_class->ConsultarCaja($idcaja);
+
+	$data2 = $catalogos->ConsultarPersonal();
+	$data3 = $catalogos->ConsultarPersonal();
+	$data4 = $catalogos->ConsultarPersonal();
+
 ?>
 
 <form action="controllers/catalogo.controller.php" method="POST" role="form">
@@ -20,34 +31,35 @@ $data4 = $personal->ConsultarPersonal();
   	<hr>	
   </div>
   <div class="encabezado">
-  	
+  	<h4>FONDO DOCUMENTAL: INTENDENCIA</h4>
+  	<p></p>
+  	<p>Personal: Chester Zamudio</p>
   </div>
   <div class="caja1">
 		<fieldset>
-			<legend>Codigo de Referencia</legend>
+			<legend>CODIGO DE REFERENCIA</legend>
 			<div class="form-group">
-				<label for="">Archivo :</label>
-				<select name="direccion" id="" class="form-control">
-					<option value="0" selected="selected">[Seleccionar]</option>
-					<option value="AH">Archivo Historico</option>
-					<option value="AI">Archivo Intermedio</option>
-				</select>
-				 <label for="">N° de Caja : </label>
-				 <input type="text" class="form-control" id="" name="codreferencia" placeholder="codigo de referencia">
+				<label for="">
+					PE/ARP/<?php echo $datosCaja['fondo']; ?>
+					/<?php echo $datosCaja['caja'];?>
+				
+				</label>
+				
 			</div>
 		</fieldset>	
 		<fieldset>
 			<legend>AREA DE IDENTIFICACION</legend>
 			<div>
-				<label for="">Caja / Unidad de Archivamiento :</label>
-				<select name="idcaja" id="" class="form-control">
-			     	<option value="0" selected="selected">[Seleccionar]</option>
-					<?php 
-					while ($fila = $data->fetch_array(MYSQLI_ASSOC)) {					 
-					?>
-					<option value="<?php echo $fila['idcaja']; ?>"><?php echo $fila['caja'];?></option>
-					<?php } ?>
+				<label for="">Archivo :</label>
+				<input type="text" name="idcaja" value="<?php echo $idcaja;?>">
+				<select name="direccion" id="" class="form-control">
+					<option value="AH" selected="selected">Archivo Historico</option>
+					<option value="AI">Archivo Intermedio</option>
 				</select>
+			</div>
+			<div>
+				<label for="">Caja / Unidad de Archivamiento :</label>
+				<input type="text" name="codreferencia" class="form-control" value="<?php echo $datosCaja['caja']; ?>">
 			</div>
 			<div class="form-group">
 				<label for="">Seccion:</label>
@@ -141,47 +153,16 @@ $data4 = $personal->ConsultarPersonal();
 			<legend>AREA DE CONTROL DE DESCRIPCION</legend>
 			<div class="form-group">
 				<label for="">Descripcion a Cargo de:</label>
-				<select name="persdescripcion" id="" class="form-control">
-			     	<option value="0" selected="selected">[Seleccionar]</option>
-					<?php 
-					while ($fila = $data2->fetch_array(MYSQLI_ASSOC)) {					 
-					?>
-					<option value="<?php echo $fila['id_personal']; ?>"><?php echo $fila['personal'];?></option>
-					<?php } ?>
-				</select>
+				<input type="text" name="persdescripcion" value="<?php echo $idpersonal;?>">
+				<p>Chester Zamudio</p>
+				
 			</div>
 			<div class="form-group">
 				<label for="">Direccion a cargo de:</label>
-				<select name="persdirector" id="" class="form-control">
-			     	<option value="0" selected="selected">[Seleccionar]</option>
-					<?php 
-					while ($fila = $data3->fetch_array(MYSQLI_ASSOC)) {					 
-					?>
-					<option value="<?php echo $fila['id_personal']; ?>"><?php echo $fila['personal'];?></option>
-					<?php } ?>
-				</select>
-			</div>
-			<div class="form-group">
-				<label for="">Revision a cargo de:</label>
-				<select name="persrevisor" id="" class="form-control">
-			     	<option value="0" selected="selected">[Seleccionar]</option>
-					<?php 
-					while ($fila = $data4->fetch_array(MYSQLI_ASSOC)) {					 
-					?>
-					<option value="<?php echo $fila['id_personal']; ?>"><?php echo $fila['personal'];?></option>
-					<?php } ?>
-				</select>			
-			</div>
-			<div class="form-group">
-				<label for="">Fecha de Inicio de Descripcion:</label>
-				<input type="date" class="form-control" id="" name="fecdescripcion" placeholder="MM/dd/aaa" >
+				<input type="text" name="persdirector" value="<?php echo $idjefearea;?>">
+				<p>Sonia Sotomayor</p>
 			</div>
 
-			<div class="form-group">
-				<label for="">Fecha de Finalizacion de Descripcion:</label>
-				<input type="date" class="form-control" id="" name="fecfinalizacion" placeholder="MM/dd/aaa">
-			</div>
-			
 			<div class="form-group">
 				<label for="">Observaciones:</label>
 				<textarea type="" class="form-control" id="" name="obs" placeholder="Observaciones"></textarea>
@@ -195,6 +176,13 @@ $data4 = $personal->ConsultarPersonal();
 </div>
 
 </form>
+
+
 <?php
 include("footer.php");
+
+}else{
+	echo "faltan datos";
+	header("location: caja_listado.php");
+}
 ?>

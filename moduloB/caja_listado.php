@@ -50,7 +50,7 @@ $data = $caja->Consultar(1);
 		  				
 		  				<td class="color">Abierto</td>
 		  				<td>
-		  					<a href="catalogo.php?idcaja=1" class="btn btn-success">CONTINUAR</a>
+		  					<a href="catalogo.php?idcaja=<?php echo $fila['idcaja']; ?>" class="btn btn-success">CONTINUAR</a>
 		  					<a href="catalolo_change.php?idcaja=1">Modificar</a>
 		  				</td>
 		  			</tr>
