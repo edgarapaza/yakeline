@@ -14,20 +14,22 @@ require("../moduloB/models/caja.model.php");
 			<a href="caja_listado.php" id="abiertos" class="btn btn-primary">PROYECTOS ACTIVOS</a>
 			<br> <br>
 			<a href="caja_cerrados.php" id="cerrados" class="btn btn-primary">PROYECTOS CERRADOS</a>
-	  	
+
 	  	</div>
 		<div class="encabezado">
 		  	<h2>FONDO DOCUMENTAL: INTENDENCIA</h2>
 		  	<p>Crear nuevo proyecto</p>
 		</div>
 
-		
+
 		<div class="caja1">
 			<form action="controllers/caja.controller.php" method="POST" role="form">
 				<div class="form-group">
 					<label for="">Personal:</label>
 					<select name="idpersonal">
-						<option value="1">Juan Calla</option>
+						<option value="1">Chester Zamudio</option>
+						<option value="2">Edgar Apaza</option>
+						<option value="3">Sonia Sotomayor</option>
 					</select>
 				</div>
 				<div class="form-group">
@@ -44,7 +46,7 @@ require("../moduloB/models/caja.model.php");
 					<label for="">Seccion:</label>
 					<input type="text" class="form-control" id="" name="seccion" placeholder="Seccion">
 				</div>
-				
+
 		</div>
 
 		<div class="caja2">
@@ -59,19 +61,19 @@ require("../moduloB/models/caja.model.php");
 				<div class="form-group">
 					<label for="">Expediente Inicial:</label>
 					<input type="text" class="form-control" id="exp_inicial" name="expedienteinicio" placeholder="Numero de Expediente">
-				</div>				
+				</div>
 				<div class="form-group">
 					<label for="">Expediente Final:</label>
 					<input type="text" class="form-control" id="exp_final" name="expedientefinal" placeholder="Numero de Expediente">
-				</div>				
+				</div>
 				<button type="submit" class="btn btn-primary">Crear Proyecto (Caja)</button>
 			</form>
 		</div>
 		<div class="caja3">
-		  	
+
 		</div>
 		<div class="caja4">
-		  	
+
 		</div>
 	</div>
 

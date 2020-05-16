@@ -3,13 +3,16 @@
 class Conexion {
 
 	public function Conectar() {
-
+		$host = "localhost";
+		$user = "user";
+		$pass = "A@dmin0215.,$";
+		$db   = "catalogo";
 		#require_once ("config.php");
 		//$mysqli = new mysqli("localhost","coraima", "A@dmin0215.,$", "catalogo");
-		$mysqli = new mysqli("localhost","root", "", "catalogo");
+		$mysqli = new mysqli($host, $user, $pass, $db);
 
 		$mysqli->set_charset("utf8");
-		
+
 		if ($mysqli->connect_errno) {
 			echo "Error al contenctar a MySQL: (".$mysqli->connect_errno.") ".$mysqli->connect_error;
 			exit();
@@ -21,9 +24,15 @@ class Conexion {
 
 	public function Conectar2() {
 
-		$mysqli = new mysqli("192.168.0.73","usuario", "archivo123$", "avancemetas");
+		$host = "localhost";
+		$user = "user";
+		$pass = "A@dmin0215.,$";
+		$db   = "catalogo";
+		#require_once ("config.php");
+		//$mysqli = new mysqli("localhost","coraima", "A@dmin0215.,$", "catalogo");
+		$mysqli = new mysqli($host, $user, $pass, $db);
 		$mysqli->set_charset("utf8");
-		
+
 		if ($mysqli->connect_errno) {
 			echo "Error al contenctar a MySQL: (".$mysqli->connect_errno.") ".$mysqli->connect_error;
 			exit();
@@ -31,7 +40,7 @@ class Conexion {
 		#echo $mysqli->host_info. "Dentro de la conexion2";
 		return $mysqli;
 	}
-	
+
 }
 
 ?>

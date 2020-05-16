@@ -13,20 +13,20 @@ class Catalogo
 		$this->conn = $link->Conectar();
 
 		$fechaActual = date('Y-m-d H:i:s');
-		$sql = "INSERT INTO catalogos (idcaja,codreferencia,seccion,titulo,fecdocumento,nivdescrip,volunimed,productor,formaingreso,contenido,dimensiones,conservacion,instdescrip,estadoconservacion,copias,notas,persdescripcion,persdirector,fecdescripcion,fecCreate,estado,obs) 
+		$sql = "INSERT INTO catalogos (idcaja,codreferencia,seccion,titulo,fecdocumento,nivdescrip,volunimed,productor,formaingreso,contenido,dimensiones,conservacion,instdescrip,estadoconservacion,copias,notas,persdescripcion,persdirector,fecdescripcion,fecCreate,estado,obs)
 		VALUES ('$idcaja','PE/ARP/$direccion/INT/$codreferencia','$seccion','$titulo','$fecdocumento','$nivdescrip','$volunimed','$productor','$formaingreso','$contenido','$dimension Cm. X $dimensiones Cm.','$conservacion','$instdescrip','$estadoconservacion','$copias','$notas','$persdescripcion','$persdirector',now(),now(),1,'$obs');";
 
 		if(!$this->conn->query($sql)){
 			echo "Error: " . mysqli_error($this->conn);
 			exit();
 		}
-		
+
 		mysqli_close($this->conn);
 	}
 
 	public function Modificar()
 	{
-		
+
 	}
 
 	public function Consultar($idcaja)
@@ -46,14 +46,14 @@ class Catalogo
 		$link = new Conexion();
 		$this->conn2 = $link->Conectar2();
 
-		$sql = "SELECT * FROM vistapersonal";
+		$sql = "SELECT * FROM personal";
 
 		if(!$response = $this->conn2->query($sql)){
 			echo "Error: ". mysqli_error($this->conn2);
 			exit();
 		}
 
-		return $response;	
+		return $response;
 
 		mysqli_close($this->conn2);
 	}
